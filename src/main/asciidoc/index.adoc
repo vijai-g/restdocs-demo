@@ -1,0 +1,116 @@
+= How to generate document using Spring REST Doc API
+vijai<contact>1.0.0;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+:sectnums:
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PATCH/PUT`
+| Used to update an existing resource, including partial updates
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+|===
+
+
+== Beneficiary API
+
+Generated from unit tests with Spring REST Docs.
+
+=== POST API /beneficiary
+
+.curl sample request
+include::{snippets}/addPayeeTest/curl-request.adoc[]
+.HTTP Response
+include::{snippets}/addPayeeTest/http-response.adoc[]
+.Request fields
+include::{snippets}/addPayeeTest/request-fields.adoc[]
+.Response fields
+include::{snippets}/addPayeeTest/response-fields.adoc[]
+
+=== GET API /beneficiary/{id}
+
+
+.curl sample request
+include::{snippets}/getPayeeByIdTest/curl-request.adoc[]
+.HTTP Response
+include::{snippets}/getPayeeByIdTest/http-response.adoc[]
+.Request parameters
+include::{snippets}/getPayeeByIdTest/path-parameters.adoc[]
+.Output
+include::{snippets}/getPayeeByIdTest/response-fields.adoc[]
+
+= Generated documentation
+
+include::{snippets}/addPayeeTest/auto-section.adoc[]
+include::{snippets}/getPayeeByIdTest/auto-section.adoc[]
+include::{snippets}/getAllPayeesTest/auto-section.adoc[]
+include::{snippets}/updateTest/auto-section.adoc[]
+
+[[overview-pagination]]
+=== Pagination
+
+Spring pagination facilities offer following request parameters:
+
+.Request parameters
+|===
+| Path | Type | Optional | Description | Constraints
+
+| page
+| Integer
+| false
+| Page you want to retrieve, 0 indexed and defaults to 0.
+| NOt Null
+
+| size
+| Integer
+| false
+| Size of the page you want to retrieve, defaults to 20.
+| NOt Null
+
+| sort
+| String
+| false
+| Properties that should be sorted by in the format `property,property(,ASC\|DESC)`.
+| NOt Null
+
+Default sort direction is ascending. Use multiple sort parameters if you want to
+switch directions, e.g. `?sort=name&sort=nickName,asc`.
+|===
+
