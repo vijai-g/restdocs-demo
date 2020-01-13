@@ -57,7 +57,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			
 			<exclusions>
 				<exclusion>
 					<groupId>org.junit.vintage</groupId>
@@ -68,20 +68,20 @@
 		<dependency>
 			<groupId>org.springframework.restdocs</groupId>
 			<artifactId>spring-restdocs-mockmvc</artifactId>
-			<scope>test</scope>
+			
 		</dependency>
 
 		<dependency>
 			<groupId>capital.scalable</groupId>
 			<artifactId>spring-auto-restdocs-core</artifactId>
 			<version>2.0.1</version>
-			<scope>test</scope>
+			
 		</dependency>
 
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-commons</artifactId>
-			<scope>test</scope>
+			
 		</dependency>
 
 
